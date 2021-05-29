@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "F:\\GitHub\\BugTracker\\BugTracker.csproj": {}
+    "F:\\GitHub\\Bug-Tracker\\BugTracker\\BugTracker.csproj": {}
   },
   "projects": {
-    "F:\\GitHub\\BugTracker\\BugTracker.csproj": {
+    "F:\\GitHub\\Bug-Tracker\\BugTracker\\BugTracker.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "F:\\GitHub\\BugTracker\\BugTracker.csproj",
+        "projectUniqueName": "F:\\GitHub\\Bug-Tracker\\BugTracker\\BugTracker.csproj",
         "projectName": "BugTracker",
-        "projectPath": "F:\\GitHub\\BugTracker\\BugTracker.csproj",
+        "projectPath": "F:\\GitHub\\Bug-Tracker\\BugTracker\\BugTracker.csproj",
         "packagesPath": "C:\\Users\\WillPlayLP\\.nuget\\packages\\",
-        "outputPath": "F:\\GitHub\\BugTracker\\obj\\",
+        "outputPath": "F:\\GitHub\\Bug-Tracker\\BugTracker\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",

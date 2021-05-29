@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "LAbqhvRrY5FvDz9OYrvvFtT6f4ccIH+JC6TmhFOxH0vmm+efdziS40D9TKpWjRvM3VnwKZkHe5SolzQXJmD1Zg==",
+  "dgSpecHash": "KA8Y9XBA+Kw3trgY0QYDle7yXUTh4hlJ1U1krM81Kxttq5q9kifEKDkOoL3tKydxhgj9lBeL2BrU9Z5PJZNLOw==",
   "success": true,
-  "projectFilePath": "F:\\GitHub\\BugTracker\\BugTracker.csproj",
+  "projectFilePath": "F:\\GitHub\\Bug-Tracker\\BugTracker\\BugTracker.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\WillPlayLP\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\WillPlayLP\\.nuget\\packages\\microsoft.aspnetcore.cryptography.internal\\5.0.5\\microsoft.aspnetcore.cryptography.internal.5.0.5.nupkg.sha512",
