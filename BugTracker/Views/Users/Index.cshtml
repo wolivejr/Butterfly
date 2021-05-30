@@ -18,9 +18,7 @@
             <th>
                 @Html.DisplayNameFor(model => model.Role)
             </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Group)
-            </th>
+            <th></th>
         </tr>
     </thead>
     <tbody>
@@ -28,6 +26,9 @@
         <tr>
             <td>
                 @Html.DisplayFor(modelItem => item.Username)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Role)
             </td>
             <td>
                 <a asp-action="Edit" asp-route-id="@item.ID">Edit</a> |

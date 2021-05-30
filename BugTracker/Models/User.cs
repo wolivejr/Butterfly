@@ -9,13 +9,6 @@ namespace BugTracker.Models
     {
         public int ID { get; set; }
         public string Username { get; set; }
-        public string Group { get; set; }
         public string Role { get; set; }
-
-        public User()
-        {
-            Group = "Unaffliated";
-            Role = "User";
-        }
     }
 }
