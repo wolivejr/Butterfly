@@ -4,10 +4,8 @@
     ViewData["Title"] = "Bugs";
 }
 
-<h1>Bugs</h1>
-
-<table class="table table-striped text-center">
-    <thead>
+<table class="table table-striped table-dark table-hover text-center table-responsive-xl">
+    <thead class="thead-dark text-nowrap">
         <tr>
             <th>
                 @Html.DisplayNameFor(model => model.Description)
@@ -67,7 +65,7 @@
 }
     </tbody>
 </table>
+<div class="d-flex justify-content-end">
+    <a asp-action="Create" class="btn btn-lg btn-success">Submit New Bug</a>
+</div>
 
-<p>
-    <a asp-action="Create" class="btn btn-success btn-block">Create New</a>
-</p>

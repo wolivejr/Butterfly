@@ -25,24 +25,6 @@ namespace BugTracker.Controllers
             return View(await _context.Bug.ToListAsync());
         }
 
-        // GET: Bugs/Details/5
-        public async Task<IActionResult> Details(int? id)
-        {
-            if (id == null)
-            {
-                return NotFound();
-            }
-
-            var bug = await _context.Bug
-                .FirstOrDefaultAsync(m => m.ID == id);
-            if (bug == null)
-            {
-                return NotFound();
-            }
-
-            return View(bug);
-        }
-
         // GET: Bugs/Create
         public IActionResult Create()
         {
