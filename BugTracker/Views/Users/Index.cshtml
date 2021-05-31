@@ -9,16 +9,19 @@
 <p>
     <a asp-action="Create">Create New</a>
 </p>
-<table class="table">
+<table mat-table class="table table-striped table-hover">
+    <caption hidden>List of Current Users</caption>
     <thead>
         <tr>
-            <th>
+            <th scope="col">
                 @Html.DisplayNameFor(model => model.Username)
             </th>
-            <th>
+            <th scope="col">
                 @Html.DisplayNameFor(model => model.Role)
             </th>
-            <th></th>
+            <th scope="col" />
+            <th scope="col" />
+            <th scope="col" />
         </tr>
     </thead>
     <tbody>
@@ -31,9 +34,13 @@
                 @Html.DisplayFor(modelItem => item.Role)
             </td>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.ID">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.ID">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.ID">Delete</a>
+                <a asp-action="Edit" asp-route-id="@item.ID" class="btn btn-warning btn-block">Edit</a>
+            </td>
+            <td>
+                <a asp-action="Details" asp-route-id="@item.ID"  class="btn btn-secondary btn-block">Details</a>
+            </td>
+            <td>
+                <a type="button" asp-action="Delete" asp-route-id="@item.ID" class="btn btn-danger btn-block">Delete</a>
             </td>
         </tr>
 }
