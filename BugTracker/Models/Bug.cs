@@ -20,8 +20,6 @@ namespace BugTracker.Models
         public Bug()
         {
             Status = "Open";
-            Date = DateTime.Now.ToShortDateString();
-            Time = DateTime.Now.ToShortTimeString();
         }
     }
 }

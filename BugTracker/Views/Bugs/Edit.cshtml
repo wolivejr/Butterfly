@@ -20,7 +20,7 @@
             <div class="form-group">
                 <label asp-for="Priority" class="control-label"></label>
                 <select asp-for="Priority" class="form-control" required>
-                    <option value="" selected >Choose a Priority Level</option>
+                    <option value="" selected>Choose a Priority Level</option>
                     <option value="Low">Low</option>
                     <option value="Medium">Medium</option>
                     <option value="High">High</option>
@@ -31,7 +31,7 @@
             <div class="form-group">
                 <label asp-for="Category" class="control-label"></label>
                 <select asp-for="Category" class="form-control" required>
-                    <option value="" selected >Choose a Category</option>
+                    <option value="" selected>Choose a Category</option>
                     <option value="Graphical">Graphical</option>
                     <option value="Crash">Crash</option>
                     <option value="Performance">Performance</option>
@@ -47,6 +47,11 @@
                 </select>
                 <span asp-validation-for="Status" class="text-danger"></span>
             </div>
+
+            <input type="hidden" asp-for="Date" value="@Model.Date" />
+            <input type="hidden" asp-for="Time" value="@Model.Time" />
+            <input type="hidden" asp-for="Username" value="@Model.Username" />
+
             <div class="d-xl-flex btn-group-lg justify-content-xl-end">
                 <button asp-action="Index" class="btn btn-secondary btn-lg mx-1" formnovalidate>Cancel</button>
                 <button type="submit" class="btn btn-success btn-lg mx-1">Save</button>
@@ -54,7 +59,6 @@
         </form>
     </div>
 </div>
-
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}

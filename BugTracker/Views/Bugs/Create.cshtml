@@ -35,18 +35,24 @@
                     <option value="Graphical">Graphical</option>
                     <option value="Crash">Crash</option>
                     <option value="Performance">Performance</option>
-                    <option value="User Error">User Errror</option>
+                    <option value="User Error">User Error</option>
                 </select>
                 <span asp-validation-for="Category" class="text-danger"></span>
             </div>
+
+            <input type="hidden" asp-for="Date" class="form-control" value="@DateTime.Now.ToShortDateString()" />
+            <input type="hidden" asp-for="Time" class="form-control" value="@DateTime.Now.ToShortTimeString()" />
+            <input type="hidden" asp-for="Username" class="form-control" value="@this.User.Identity.Name" />
+
             <div class="d-flex justify-content-end">
                 <a asp-action="Index" class="btn btn-secondary btn-lg mx-1">Cancel</a>
                 <input type="submit" value="Create" class="btn btn-primary btn-lg mx-1" />
             </div>
-            
         </form>
     </div>
 </div>
+ 
+
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}

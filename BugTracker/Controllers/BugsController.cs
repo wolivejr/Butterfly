@@ -11,7 +11,6 @@ using BugTracker.Models;
 
 namespace BugTracker.Controllers
 {
-    [Authorize(Roles = "User")]
     public class BugsController : Controller
     {
         private readonly ApplicationDbContext _context;
