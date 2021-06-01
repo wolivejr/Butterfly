@@ -5,7 +5,7 @@ VisualStudioVersion = 16.0.31205.134
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BugTracker", "BugTracker.csproj", "{2C1908A9-3F16-4829-BB16-FCEBD6C3455C}"
 EndProject
-Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "DBBugTrackerLocal", "DBBugTrackerLocal\DBBugTrackerLocal.sqlproj", "{C11253C1-2DA4-411A-9256-A197C866504B}"
+Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "DBBugTracker", "DBBugTracker\DBBugTracker.sqlproj", "{C11253C1-2DA4-411A-9256-A197C866504B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
