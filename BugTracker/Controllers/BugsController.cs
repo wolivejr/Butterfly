@@ -5,7 +5,6 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.AspNetCore.Authorization;
 using BugTracker.Data;
 using BugTracker.Models;
 
@@ -20,11 +19,28 @@ namespace BugTracker.Controllers
             _context = context;
         }
 
-        [AllowAnonymous]
         // GET: Bugs
         public async Task<IActionResult> Index()
         {
             return View(await _context.Bug.ToListAsync());
+        }
+
+        // GET: Bugs/Details/5
+        public async Task<IActionResult> Details(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var bug = await _context.Bug
+                .FirstOrDefaultAsync(m => m.ID == id);
+            if (bug == null)
+            {
+                return NotFound();
+            }
+
+            return View(bug);
         }
 
         // GET: Bugs/Create
@@ -101,31 +117,26 @@ namespace BugTracker.Controllers
         }
 
         // GET: Bugs/Delete/5
-        public async Task<IActionResult> Delete(int? id)
+        public IActionResult Delete(int? id)
         {
+
             if (id == null)
             {
                 return NotFound();
             }
 
-            var bug = await _context.Bug
-                .FirstOrDefaultAsync(m => m.ID == id);
+            Bug bug = _context.Bug
+                .Where(b => b.ID == id)
+                .Single();
+
             if (bug == null)
             {
                 return NotFound();
             }
 
-            return View(bug);
-        }
+            _context.Remove(bug);
+            _context.SaveChanges();
 
-        // POST: Bugs/Delete/5
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(int id)
-        {
-            var bug = await _context.Bug.FindAsync(id);
-            _context.Bug.Remove(bug);
-            await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 

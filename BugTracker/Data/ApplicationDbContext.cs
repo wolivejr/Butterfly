@@ -10,6 +10,5 @@ namespace BugTracker.Data
         {
         }
         public DbSet<BugTracker.Models.Bug> Bug { get; set; }
-        public DbSet<BugTracker.Models.User> User { get; set; }
     }
 }
