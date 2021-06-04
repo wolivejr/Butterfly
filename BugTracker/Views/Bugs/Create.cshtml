@@ -40,9 +40,9 @@
                 <span asp-validation-for="Category" class="text-danger"></span>
             </div>
 
-            <input type="hidden" asp-for="Date" class="form-control" value="@DateTime.Now.ToShortDateString()" />
-            <input type="hidden" asp-for="Time" class="form-control" value="@DateTime.Now.ToShortTimeString()" />
-            <input type="hidden" asp-for="Username" class="form-control" value="@this.User.Identity.Name" />
+            <input type="hidden" asp-for="SubmissionDate" class="form-control" value="@DateTime.Now.ToShortDateString()" />
+            <input type="hidden" asp-for="SubmissionTime" class="form-control" value="@DateTime.Now.ToShortTimeString()" />
+            <input type="hidden" asp-for="Submitter" class="form-control" value="@this.User.Identity.Name" />
 
             <div class="d-flex justify-content-end">
                 <a asp-action="Index" class="btn btn-secondary btn-lg mx-1">Cancel</a>

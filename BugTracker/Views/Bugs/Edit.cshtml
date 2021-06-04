@@ -47,11 +47,19 @@
                 </select>
                 <span asp-validation-for="Status" class="text-danger"></span>
             </div>
+            <div id="Solution" class="form-group hide">
+                <label asp-for="Solution" class="control-label"></label>
+                <textarea asp-for="Solution" class="form-control" required></textarea> 
+                <span asp-validation-for="Solution" class="text-danger"></span>
+            </div>
 
-            <input type="hidden" asp-for="Date" value="@Model.Date" />
-            <input type="hidden" asp-for="Time" value="@Model.Time" />
-            <input type="hidden" asp-for="Username" value="@Model.Username" />
-
+            <input type="hidden" asp-for="SubmissionDate" value="@Model.SubmissionDate" />
+            <input type="hidden" asp-for="SubmissionDate" value="@Model.SubmissionTime" />
+            <input type="hidden" asp-for="SubmissionTime" value="@Model.Submitter" />            
+            <input type="hidden" asp-for="SolutionDate" value="@Model.SolutionDate" />
+            <input type="hidden" asp-for="SolutionTime" value="@Model.SolutionTime" />
+            <input type="hidden" asp-for="SolutionUser" value="@this.User.Identity.ToString()" />
+            
             <div class="d-xl-flex btn-group-lg justify-content-xl-end">
                 <button asp-action="Index" class="btn btn-secondary btn-lg mx-1" formnovalidate>Cancel</button>
                 <button type="submit" class="btn btn-success btn-lg mx-1">Save</button>

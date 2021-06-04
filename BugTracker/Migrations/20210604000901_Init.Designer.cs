@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BugTracker.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20210530084102_UserParameters")]
-    partial class UserParameters
+    [Migration("20210604000901_Init")]
+    partial class Init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -37,33 +37,33 @@ namespace BugTracker.Migrations
                     b.Property<string>("Priority")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("Solution")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("SolutionDate")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("SolutionTime")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("SolutionUser")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Status")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("SubmissionDate")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("SubmissionTime")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Submitter")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("ID");
 
                     b.ToTable("Bug");
-                });
-
-            modelBuilder.Entity("BugTracker.Models.User", b =>
-                {
-                    b.Property<int>("ID")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("Group")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Role")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Username")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("ID");
-
-                    b.ToTable("User");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>

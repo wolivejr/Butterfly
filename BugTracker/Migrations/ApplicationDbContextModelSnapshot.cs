@@ -29,22 +29,34 @@ namespace BugTracker.Migrations
                     b.Property<string>("Category")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Date")
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<string>("Description")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Priority")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("Solution")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("SolutionDate")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("SolutionTime")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("SolutionUser")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Status")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Time")
+                    b.Property<string>("SubmissionDate")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Username")
+                    b.Property<string>("SubmissionTime")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Submitter")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("ID");

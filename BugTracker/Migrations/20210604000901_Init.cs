@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace BugTracker.Migrations
 {
-    public partial class DBInit : Migration
+    public partial class Init : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -55,24 +55,18 @@ namespace BugTracker.Migrations
                     Status = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Description = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Priority = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Category = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                    Category = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Submitter = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    SubmissionDate = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    SubmissionTime = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Solution = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    SolutionUser = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    SolutionDate = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    SolutionTime = table.Column<string>(type: "nvarchar(max)", nullable: true)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Bug", x => x.ID);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "User",
-                columns: table => new
-                {
-                    ID = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    Username = table.Column<string>(type: "nvarchar(max)", nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_User", x => x.ID);
                 });
 
             migrationBuilder.CreateTable(
@@ -240,9 +234,6 @@ namespace BugTracker.Migrations
 
             migrationBuilder.DropTable(
                 name: "Bug");
-
-            migrationBuilder.DropTable(
-                name: "User");
 
             migrationBuilder.DropTable(
                 name: "AspNetRoles");
