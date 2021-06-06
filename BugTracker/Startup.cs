@@ -3,7 +3,6 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Identity.UI;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -12,6 +11,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using BugTracker.Models;
+using Microsoft.AspNetCore.Identity.UI.Services;
 
 namespace BugTracker
 {
@@ -30,11 +31,22 @@ namespace BugTracker
             services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseSqlServer(
                     Configuration.GetConnectionString("DefaultConnection")));
+            
             services.AddDatabaseDeveloperPageExceptionFilter();
 
-            services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = false)
-                .AddEntityFrameworkStores<ApplicationDbContext>();
+            services.AddIdentity<IdentityUser, IdentityRole>(options =>
+            (options.SignIn.RequireConfirmedAccount, options.SignIn.RequireConfirmedEmail) = (false, false))
+            .AddRoleManager<RoleManager<IdentityRole>>()
+            .AddEntityFrameworkStores<ApplicationDbContext>();
+
+            // (options => options
+            //.SignIn.RequireConfirmedAccount = false)
+            //
+            //
+            //
+
             services.AddControllersWithViews();
+            services.AddRazorPages();
 
             services.Configure<IdentityOptions>(options =>
             {
@@ -47,7 +59,12 @@ namespace BugTracker
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+        public void Configure(
+            IApplicationBuilder app,
+            IWebHostEnvironment env, 
+            IServiceProvider services,
+            UserManager<IdentityUser> userManager,
+            RoleManager<IdentityRole> roleManager)
         {
             if (env.IsDevelopment())
             {
@@ -67,6 +84,8 @@ namespace BugTracker
 
             app.UseAuthentication();
             app.UseAuthorization();
+
+            new SeedData().Initialize(services, userManager, roleManager).Wait();
 
             app.UseEndpoints(endpoints =>
             {
