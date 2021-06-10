@@ -39,12 +39,6 @@ namespace BugTracker
             .AddRoleManager<RoleManager<IdentityRole>>()
             .AddEntityFrameworkStores<ApplicationDbContext>();
 
-            // (options => options
-            //.SignIn.RequireConfirmedAccount = false)
-            //
-            //
-            //
-
             services.AddControllersWithViews();
             services.AddRazorPages();
 

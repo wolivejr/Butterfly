@@ -2,11 +2,14 @@
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authorization;
 using BugTracker.Data;
 using BugTracker.Models;
 
 namespace BugTracker.Controllers
 {
+    [Authorize]
     public class BugsController : Controller
     {
         private readonly ApplicationDbContext _context;
@@ -16,12 +19,14 @@ namespace BugTracker.Controllers
             _context = context;
         }
 
+        [AllowAnonymous]
         // GET: Bugs
         public async Task<IActionResult> Index()
         {
             return View(await _context.Bug.ToListAsync());
         }
-
+        
+        [Authorize(Roles = "Administrator, Contributor")]
         // GET: Bugs/Details/5
         public async Task<IActionResult> Details(int? id)
         {
@@ -46,6 +51,7 @@ namespace BugTracker.Controllers
             return View();
         }
 
+
         // POST: Bugs/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
@@ -63,6 +69,7 @@ namespace BugTracker.Controllers
         }
 
         // GET: Bugs/Edit/5
+        [Authorize(Roles = "Administrator, Contributor")]
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -83,6 +90,7 @@ namespace BugTracker.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Administrator, Contributor")]
         public async Task<IActionResult> Edit(int id, [Bind("ID,Status,Description,Priority,Category,Username,Date,Time")] Bug bug)
         {
             if (id != bug.ID)
@@ -115,6 +123,7 @@ namespace BugTracker.Controllers
 
 
         // GET: Bugs/Delete/5
+        [Authorize(Roles = "Administrator")]
         public IActionResult Delete(int? id)
         {
 
