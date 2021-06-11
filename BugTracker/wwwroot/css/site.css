@@ -3,54 +3,53 @@
 }
 
 .container-fluid {
-    display:flex;
-    border:dotted;
-    border-color:black;
-    height:100vh;
-}
-
-.row {
-    height: 100%;
-    border: dotted;
-    border-color: green;
-}
-
-.col {
-    height: 100%;
-    border: solid;
-    border-color: green;
-}
-
-nav {
-
-
-}
-
-ul {
-    list-style: none;
-}
-
-li {
-    background-color:whitesmoke;
-}
-
-header {
-    margin-top: auto;
-}
-
-main {
     display: flex;
+    height: 100vh;
+    background-color: whitesmoke;
+    padding: 1rem 2rem 1rem 2rem;
 }
 
-footer {
-    margin-bottom: auto;
+#Master {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+#SideBar {
+    background-color:darkgray;
+    height:100%;
+}
+
+#Header {
+}
+
+#NavItem {
+
+}
+
+#Footer {
+}
+
+#MainContent {
+    margin: 0rem 1rem 0rem 1rem;
+}
+
+#Body {
+}
+
+table {
+}
+
+#CreateButton{
+    display: flex;
+    flex-shrink: 0;
 }
 
 /* Set width on the form input elements since they're 100% wide by default */
 input,
 select,
 textarea {
-    max-width: 280px;
+    min-width: 280px;
+    max-width: 560px;
 }
 
 /* styles for validation helpers */

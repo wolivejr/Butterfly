@@ -10,41 +10,35 @@
     </head>
 
     <body>
-
-        <div class="container-fluid">
-            
+        <div id="Master" class="container-fluid">
             <div class="row flex-row">
-                <div class="col col-2 flex-column">
-                    <nav>
-                        <ul>
-                            <li>
-                                <a asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-                            </li>
-                            <li>
-                                <a asp-area="" asp-controller="Bugs" asp-action="Index">Bugs</a>
-                            </li>
-                                <partial name="_LoginPartial" />
-                        </ul>
-                    </nav>
+                <div id="SideBar" class="col-2 flex-column navbar">
+                    
+                    <div id="Header" class="row flex-shrink-1 navbar-brand text-nowrap">
+                        Bug Tracker
+                    </div>
+                    <div id="Navigation">
+                        <partial name="_LoginPartial" />
+                        <div id="NavItem" class=""><a asp-area="" asp-controller="Home" asp-action="Index">Home</a></div>
+                        <div id="NavItem" class=""><a asp-area="" asp-controller="Bugs" asp-action="Index">Bugs</a></div>
+                    </div>
+                    
+                    <div id="Footer" class="text-nowrap flex-shrink-1">
+                        Created by: William Olive, JR
+                    </div>
+
                 </div>
-
-                <div class="col col-10 flex-column">
-                    <header class="text-center">
-                        <h1>Welcome to the Bug Tracker.</h1>
-                    </header>
-
-                    <main>
+                <div id="Body" class="col-10">
+                    <div id="MainContent" class="row flex-row">
                         @RenderBody()
-                    </main>
-
-                    <footer class="text-center">
-                        Created by William Olive, JR
-                    </footer>
+                    </div>
                 </div>
 
             </div>
-        </div>
-    </body>
+    </div>
+</body>
+
+
 </html>
 
 <script src="~/lib/jquery/dist/jquery.min.js"></script>
