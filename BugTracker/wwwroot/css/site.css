@@ -1,73 +1,50 @@
-﻿html{
-    box-sizing:border-box;
+﻿html {
+    box-sizing: border-box;
 }
 
-body {
-}
-
-#Layout {
+.container-fluid {
     display:flex;
-    flex-direction: row;
-    flex-basis: 90ch;
+    border:dotted;
+    border-color:black;
+    height:100vh;
 }
 
-.Content {
-    flex-basis: 0;
+.row {
+    height: 100%;
+    border: dotted;
+    border-color: green;
+}
+
+.col {
+    height: 100%;
+    border: solid;
+    border-color: green;
+}
+
+nav {
+
+
+}
+
+ul {
+    list-style: none;
+}
+
+li {
+    background-color:whitesmoke;
+}
+
+header {
+    margin-top: auto;
+}
+
+main {
     display: flex;
-    align-content: stretch;
-    flex-grow: 999;
 }
 
-#Header {
-    display: flex;
-    flex-direction: row;
-    font-size: 26px;
-    z-index: 0;
-    flex-direction: row;
-    align-items: stretch;
+footer {
+    margin-bottom: auto;
 }
-
-#Main {
-    display: flex;
-    flex-direction: row;
-    align-items: stretch;
-    flex-grow:2;
-}
-
-#Footer {
-    display: flex;
-    flex-direction: row;
-    font-size: 26px;
-    flex-direction: row;
-    align-items: stretch;
-}
-
-#Navigation {
-    flex-basis: 20rem;
-    display: flex;
-    flex-direction: column;
-    flex-shrink: 1;
-    background-color: gainsboro;
-    align-items:stretch;
-    flex-grow: 1;
-}
-
-#Nav1 {
-    display: flex;
-    flex-direction: column;
-}
-
-#Nav2 {
-    display: flex;
-    flex-direction: column;
-}
-
-#Nav3 {
-    display: flex;
-    flex-direction:column;
-}
-
-
 
 /* Set width on the form input elements since they're 100% wide by default */
 input,

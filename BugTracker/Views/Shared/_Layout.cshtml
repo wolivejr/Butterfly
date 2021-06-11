@@ -11,33 +11,37 @@
 
     <body>
 
-        <div class="container-fluid"  style="border:dotted">
-            <div class="row" style="border:dotted">
-                <div class="col-2 flex-column flex-grow-1" style="border:dotted">
-                    <div>
-                        <a asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-                    </div>
-                    <div>
-                        <a asp-area="" asp-controller="Bugs" asp-action="Index">Bugs</a>
-                    </div>
-                    <div>
-                        <partial name="_LoginPartial" />
-                    </div>
+        <div class="container-fluid">
+            
+            <div class="row flex-row">
+                <div class="col col-2 flex-column">
+                    <nav>
+                        <ul>
+                            <li>
+                                <a asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                            </li>
+                            <li>
+                                <a asp-area="" asp-controller="Bugs" asp-action="Index">Bugs</a>
+                            </li>
+                                <partial name="_LoginPartial" />
+                        </ul>
+                    </nav>
                 </div>
 
-                <div class="col-10 flex-column flex-grow-1" style="border:dotted">
-                    <div class="text-center">
+                <div class="col col-10 flex-column">
+                    <header class="text-center">
                         <h1>Welcome to the Bug Tracker.</h1>
-                    </div>
+                    </header>
 
-                    <div>
+                    <main>
                         @RenderBody()
-                    </div>
+                    </main>
 
-                    <div class="text-center">
+                    <footer class="text-center">
                         Created by William Olive, JR
-                    </div>
+                    </footer>
                 </div>
+
             </div>
         </div>
     </body>
