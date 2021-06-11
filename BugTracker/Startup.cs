@@ -13,6 +13,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using BugTracker.Models;
 using Microsoft.AspNetCore.Identity.UI.Services;
+using Microsoft.AspNetCore.Authorization;
 
 namespace BugTracker
 {
@@ -36,6 +37,7 @@ namespace BugTracker
 
             services.AddIdentity<IdentityUser, IdentityRole>(options =>
             (options.SignIn.RequireConfirmedAccount, options.SignIn.RequireConfirmedEmail) = (false, false))
+            .AddDefaultUI()
             .AddRoleManager<RoleManager<IdentityRole>>()
             .AddEntityFrameworkStores<ApplicationDbContext>();
 
@@ -48,6 +50,12 @@ namespace BugTracker
                 options.SignIn.RequireConfirmedPhoneNumber = false;
                 options.SignIn.RequireConfirmedAccount = false;
                 options.User.RequireUniqueEmail = true;
+            });
+
+            services.AddAuthentication().AddCookie(options =>
+            {
+                options.LoginPath = "~/areas/identity/account/login";
+                options.LogoutPath = "~/areas/identity/account/logout";
             });
 
         }

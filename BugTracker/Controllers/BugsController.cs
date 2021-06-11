@@ -19,20 +19,20 @@ namespace BugTracker.Controllers
             _context = context;
         }
 
-        [AllowAnonymous]
+
         // GET: Bugs
+        [AllowAnonymous]
         public async Task<IActionResult> Index()
         {
             return View(await _context.Bug.ToListAsync());
         }
-        
-        [Authorize(Roles = "Administrator, Contributor")]
+
         // GET: Bugs/Details/5
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
             {
-                return NotFound();
+                NotFound();
             }
 
             var bug = await _context.Bug
@@ -69,9 +69,9 @@ namespace BugTracker.Controllers
         }
 
         // GET: Bugs/Edit/5
-        [Authorize(Roles = "Administrator, Contributor")]
         public async Task<IActionResult> Edit(int? id)
         {
+
             if (id == null)
             {
                 return NotFound();
@@ -90,7 +90,8 @@ namespace BugTracker.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        [Authorize(Roles = "Administrator, Contributor")]
+        //[Authorize]
+        //[Authorize(Roles = "Administrator, Contributor")]
         public async Task<IActionResult> Edit(int id, [Bind("ID,Status,Description,Priority,Category,Username,Date,Time")] Bug bug)
         {
             if (id != bug.ID)
@@ -123,7 +124,8 @@ namespace BugTracker.Controllers
 
 
         // GET: Bugs/Delete/5
-        [Authorize(Roles = "Administrator")]
+        //[Authorize]
+        //[Authorize(Roles = "Administrator")]
         public IActionResult Delete(int? id)
         {
 
