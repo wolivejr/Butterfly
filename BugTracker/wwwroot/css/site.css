@@ -1,13 +1,73 @@
-﻿body {
-    padding-top: 50px;
-    padding-bottom: 20px;
+﻿html{
+    box-sizing:border-box;
 }
 
-/* Set padding to keep content from hitting the edges */
-.body-content {
-    padding-left: 15px;
-    padding-right: 15px;
+body {
 }
+
+#Layout {
+    display:flex;
+    flex-direction: row;
+    flex-basis: 90ch;
+}
+
+.Content {
+    flex-basis: 0;
+    display: flex;
+    align-content: stretch;
+    flex-grow: 999;
+}
+
+#Header {
+    display: flex;
+    flex-direction: row;
+    font-size: 26px;
+    z-index: 0;
+    flex-direction: row;
+    align-items: stretch;
+}
+
+#Main {
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+    flex-grow:2;
+}
+
+#Footer {
+    display: flex;
+    flex-direction: row;
+    font-size: 26px;
+    flex-direction: row;
+    align-items: stretch;
+}
+
+#Navigation {
+    flex-basis: 20rem;
+    display: flex;
+    flex-direction: column;
+    flex-shrink: 1;
+    background-color: gainsboro;
+    align-items:stretch;
+    flex-grow: 1;
+}
+
+#Nav1 {
+    display: flex;
+    flex-direction: column;
+}
+
+#Nav2 {
+    display: flex;
+    flex-direction: column;
+}
+
+#Nav3 {
+    display: flex;
+    flex-direction:column;
+}
+
+
 
 /* Set width on the form input elements since they're 100% wide by default */
 input,
@@ -40,4 +100,3 @@ input[type="checkbox"].input-validation-error {
 .validation-summary-valid {
     display: none;
 }
-

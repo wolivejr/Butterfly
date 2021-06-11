@@ -10,35 +10,35 @@
     </head>
 
     <body>
-        <div id="Layout" style="    display: flex; flex-direction: column; flex: 1; justify-content: space-around; padding: 2% 2% 2% 2%; margin: 1rem 1rem 1rem 1rem">
-            <header>
-                <h1 style="text-align:center; margin: 2% 2% 2% 2%;">Welcome to the Bug Tracker.</h1>
-            </header>
 
-            <div style="display:flex; flex-direction:row;">
-                <nav style="margin: 2% 2% 2% 2%;">
-                    <ul>
-                        <li>
-                            <a asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-                        </li>
-                        <li>
-                            <a asp-area="" asp-controller="Bugs" asp-action="Index">Bugs</a>
-                        </li>
-                    </ul>
-                    <ul>
+        <div class="container-fluid"  style="border:dotted">
+            <div class="row" style="border:dotted">
+                <div class="col-2 flex-column flex-grow-1" style="border:dotted">
+                    <div>
+                        <a asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                    </div>
+                    <div>
+                        <a asp-area="" asp-controller="Bugs" asp-action="Index">Bugs</a>
+                    </div>
+                    <div>
                         <partial name="_LoginPartial" />
-                    </ul>
-                </nav>
-                <div style="margin: 2% 2% 2% 2%;">
-                    <main>
-                        @RenderBody()
-                    </main>
+                    </div>
                 </div>
 
+                <div class="col-10 flex-column flex-grow-1" style="border:dotted">
+                    <div class="text-center">
+                        <h1>Welcome to the Bug Tracker.</h1>
+                    </div>
+
+                    <div>
+                        @RenderBody()
+                    </div>
+
+                    <div class="text-center">
+                        Created by William Olive, JR
+                    </div>
+                </div>
             </div>
-
-
-
         </div>
     </body>
 </html>
