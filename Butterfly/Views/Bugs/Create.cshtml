@@ -1,0 +1,59 @@
+﻿@model Butterfly.Models.Bug
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Submit a new bug</h1>
+
+<h4>Add a description of your bug below.</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Description" class="control-label"></label>
+                <textarea asp-for="Description" class="form-control" required></textarea>
+                <span asp-validation-for="Description" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Priority" class="control-label"></label>
+                <select asp-for="Priority" class="form-control" required>
+                    <option value="" selected>Choose a Priority Level</option>
+                    <option value="Low">Low</option>
+                    <option value="Medium">Medium</option>
+                    <option value="High">High</option>
+                    <option value="Critical">Critical</option>
+                </select>
+                <span asp-validation-for="Priority" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Category" class="control-label"></label>
+                <select asp-for="Category" class="form-control" required>
+                    <option value="" selected>Choose a Category</option>
+                    <option value="Graphical">Graphical</option>
+                    <option value="Crash">Crash</option>
+                    <option value="Performance">Performance</option>
+                    <option value="User Error">User Error</option>
+                </select>
+                <span asp-validation-for="Category" class="text-danger"></span>
+            </div>
+
+            <input type="hidden" asp-for="SubmissionDate" class="form-control" value="@DateTime.Now.ToShortDateString()" />
+            <input type="hidden" asp-for="SubmissionTime" class="form-control" value="@DateTime.Now.ToShortTimeString()" />
+            <input type="hidden" asp-for="Submitter" class="form-control" value="@this.User.Identity.Name" />
+
+            <div class="d-flex justify-content-end">
+                <a asp-action="Index" class="btn btn-secondary btn-lg mx-1">Cancel</a>
+                <input type="submit" value="Create" class="btn btn-primary btn-lg mx-1" />
+            </div>
+        </form>
+    </div>
+</div>
+ 
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
